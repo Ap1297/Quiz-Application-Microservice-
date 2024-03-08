@@ -1,0 +1,55 @@
+package com.thunderCoder.questionservice.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.thunderCoder.questionservice.dao.QuizDao;
+import com.thunderCoder.questionservice.feign.QuizInterface;
+import com.thunderCoder.questionservice.model.QuestionWrapper;
+import com.thunderCoder.questionservice.model.Quiz;
+import com.thunderCoder.questionservice.model.Response;
+
+@Service
+public class QuizService {
+
+	@Autowired
+	QuizDao quizDao;
+	
+	@Autowired
+	QuizInterface quizInterface;
+	
+	
+	
+	
+
+	public ResponseEntity<String> createQuiz(String category, int numQ, String title) {
+		
+		List<Integer> questions = quizInterface.getQuestionsForQuiz(category, numQ).getBody();
+		Quiz quiz = new Quiz();
+		quiz.setTitle(title);
+		quiz.setQuestionIds(questions);
+		
+		return null;
+	}
+
+
+
+	public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	public ResponseEntity<Integer> calculteResult(Integer id, List<Response> responses) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+}

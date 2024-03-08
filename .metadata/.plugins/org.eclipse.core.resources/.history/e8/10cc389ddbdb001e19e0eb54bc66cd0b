@@ -1,0 +1,6 @@
+package com.thunderCoder.questionservice.feign;
+
+@Feign
+public interface QuizInterface {
+
+}

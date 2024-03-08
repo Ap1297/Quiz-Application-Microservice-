@@ -1,0 +1,10 @@
+package com.thunderCoder.questionservice.model;
+
+import lombok.Data;
+
+@Data
+public class QuizDto {
+	public String category;
+	public int numQ;
+	public String title;
+}

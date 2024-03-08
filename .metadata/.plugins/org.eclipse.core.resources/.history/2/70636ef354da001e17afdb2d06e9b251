@@ -1,0 +1,5 @@
+package com.thunderCoder.questionservice.model;
+
+public class Quiz {
+
+}

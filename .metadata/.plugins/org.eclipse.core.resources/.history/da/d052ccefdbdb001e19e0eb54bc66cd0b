@@ -1,0 +1,21 @@
+package com.thunderCoder.questionservice.feign;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import com.thunderCoder.questionservice.model.QuestionWrapper;
+import com.thunderCoder.questionservice.model.Response;
+
+@FeignClient("QUESTION-SERVICE")
+public interface QuizInterface {
+	
+	public ResponseEntity<List<Integer>> getQuestionsForQuiz(String categoryName, int noOfQuestions) 
+
+	public ResponseEntity<List<QuestionWrapper>> getQuestionsFromId(List<Integer> questionIds) 
+
+	public ResponseEntity<Integer> getScore(List<Response> responses) 
+	
+}

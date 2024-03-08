@@ -1,0 +1,5 @@
+package com.thunderCoder.questionservice.feign;
+
+public interface QuizInterface {
+
+}
