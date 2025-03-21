@@ -20,33 +20,33 @@ public class QuestionService {
 	@Autowired
 	QuestionDao dao;
 	
-	public ResponseEntity<List<Question>> getAllQuestions()
+	public List<Question> getAllQuestions()
 	{
 		try {
-			return ResponseEntity.ok(dao.findAll());
+			return dao.findAll();
 		}catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
+		return null;
 	}
 	
-	public ResponseEntity<List<Question>> getQuestionsByCategory(String category)
+	public List<Question> getQuestionsByCategory(String category)
 	{
 		try {
-			return ResponseEntity.ok(dao.findByCategory(category));
+			return dao.findByCategory(category);
 		}catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
+		return null;
 	}
 	
-	public ResponseEntity<String> addQuestion(@RequestBody List<Question> question)
+	public String addQuestion(@RequestBody List<Question> question)
 	{
 		for(Question data:question)
 			dao.save(data);
-		return new ResponseEntity<>("success",HttpStatus.CREATED);
+		return "success";
 	}
 
 	public ResponseEntity<List<Integer>> getQuestionsForQuiz(String categoryName, int noOfQuestions) {
